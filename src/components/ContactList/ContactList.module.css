@@ -1,0 +1,29 @@
+.contactList {
+  list-style: none;
+  padding: 0;
+}
+
+.contactListItem {
+  /* display: flex;
+  justify-content: space-between;
+  padding: 30px; */
+}
+
+.contactBtn {
+  display: inline-block;
+  cursor: pointer;
+  background: white;
+  line-height: 20px;
+  border: 1px solid darkgrey;
+  outline: none;
+  border-radius: 10px;
+  margin: 0 3px;
+}
+
+.contactBtn:hover {
+  background: whitesmoke;
+}
+
+.contactBtn:active {
+  background: lightcoral;
+}

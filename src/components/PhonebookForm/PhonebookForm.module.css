@@ -1,0 +1,36 @@
+.form {
+  /* display: flex;
+  flex-direction: column;
+  align-content: space-between; */
+  padding: 0 20px;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.inputLabel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  line-height: 24px;
+}
+
+.addBtn {
+  display: inline-block;
+  cursor: pointer;
+  background: white;
+  line-height: 20px;
+  border: 1px solid darkgrey;
+  outline: none;
+  border-radius: 10px;
+  margin: 0 3px;
+}
+
+.addBtn:hover {
+  background: whitesmoke;
+}
+
+.addBtn:active {
+  background: lightgreen;
+}

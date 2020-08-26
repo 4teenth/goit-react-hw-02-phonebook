@@ -23,7 +23,7 @@ export default class PhonebookForm extends Component {
   };
 
   nameId = shortid.generate();
-  NumberId = shortid.generate();
+  numberId = shortid.generate();
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -35,14 +35,22 @@ export default class PhonebookForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const { name, number } = this.state;
+    // const { name, number } = this.state;
+    // this.props.onAddContact(name, number);
+    // OR (was taken the state with all properties)
+    this.props.onAddContact(this.state);
 
-    this.props.onAddContact(name, number);
     this.setState({
       name: '',
       number: '',
     });
+    // OR call RESET and use method below, but the same is above
+    // this.reset();
   };
+
+  // reset = () => {
+  //   this.setState({ name: '', number: '' });
+  // };
 
   render() {
     const { name, number } = this.state;
@@ -57,12 +65,13 @@ export default class PhonebookForm extends Component {
             <input
               className={input}
               type="text"
-              placeholder="First/Last name"
+              placeholder=" First/Last name"
               value={name}
               onChange={this.handleChange}
               name="name"
               id={this.nameId}
-              // required
+              required
+              // required - checking the form until sending - https://developer.mozilla.org/ru/docs/Learn/HTML/Forms/%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D1%8F_%D1%84%D0%BE%D1%80%D0%BC%D1%8B
             />
           </label>
           <label className={inputLabel} htmlFor={this.numberId}>
@@ -70,17 +79,17 @@ export default class PhonebookForm extends Component {
             <input
               className={input}
               type="text"
-              placeholder="tel# +XXX-XX-..."
+              placeholder=" +380-XX-..."
               value={number}
               onChange={this.handleChange}
               name="number"
               id={this.numberId}
-              // required
+              required
             />
-            <button type="button" className={addBtn}>
-              Add contact
-            </button>
           </label>
+          <button type="submit" className={addBtn}>
+            Add contact
+          </button>
         </form>
       </>
     );

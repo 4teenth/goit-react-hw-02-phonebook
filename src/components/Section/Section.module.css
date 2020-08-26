@@ -1,0 +1,12 @@
+.section {
+  /* border: 1px solid black; */
+  padding: 3px 0 3px 0;
+}
+
+.section:hover {
+  background: whitesmoke;
+}
+
+.sectionTitle {
+  background: white;
+}

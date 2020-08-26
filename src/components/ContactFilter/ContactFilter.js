@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ContactFilter.module.css';
 
-const { inputForm } = styles;
+const { titleForm, inputForm } = styles;
 
 const ContactFilter = ({ value, onChangeFilter }) => (
   <>
+    <p className={titleForm}>Find contacts by name</p>
     <input
       className={inputForm}
       type="text"
-      placeholder="Search"
+      placeholder="Search.."
       value={value}
       onChange={({ target }) => onChangeFilter(target.value)}
     ></input>

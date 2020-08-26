@@ -9,20 +9,7 @@ import PropTypes from 'prop-types';
 
 export default class App extends Component {
   static defaultProps = {
-    contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      {
-        id: 'id-2',
-        name: 'Hermione Kline',
-        number: '443-89-12',
-      },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      {
-        id: 'id-4',
-        name: 'Annie Copeland',
-        number: '227-91-26',
-      },
-    ],
+    contacts: [],
     filter: '',
   };
 
@@ -36,12 +23,32 @@ export default class App extends Component {
     filter: this.props.filter,
   };
 
+  // addContact = (newName, newNumber) => {
+  //   console.log(newName, newNumber);
+  //   const newContact = {
+  //     id: uuidv4(),
+  //     name: newName,
+  //     number: newNumber,
+  //   };
+
+  //   if (this.state.contacts.some(contact => contact.name === newName)) {
+  //     alert(`${newName} is already in contacts.`);
+  //     return;
+  //   }
+  //   this.setState(prevState => {
+  //     return {
+  //       contacts: [...prevState.contacts, newContact],
+  //     };
+  //   });
+  // };
+
   addContact = newContact => {
     const { name, number } = newContact;
-    // the same above = newContact.name / newContact.number
+    // console.log(newContact);
+    // Can use one param, because was written this.props.onAddContact(this.state) - all state, included name/number
     const { contacts } = this.state;
     const theContact = {
-      id: uuidv4.v4(),
+      id: uuidv4(),
       name,
       number,
     };
@@ -56,6 +63,12 @@ export default class App extends Component {
       };
     });
   };
+
+  // Checking...
+  // addContact = (newContact, newNumber) => {
+  //   console.log(newContact);
+  //   console.log(newNumber);
+  // };
 
   deleteContact = contactId => {
     this.setState(prevState => {
@@ -78,12 +91,12 @@ export default class App extends Component {
     );
   };
   // the same with destr
-  //   getFilterForContacts = () => {
-  //     const { contacts, filter } = this.state;
-  //     return contacts.filter(({ name }) =>
-  //       name.toLowerCase().included(filter.toLowerCase()),
-  //     );
-  //   };
+  // getContactsByFilter = () => {
+  //   const { contacts, filter } = this.state;
+  //   return contacts.filter(({ name }) =>
+  //     name.toLowerCase().included(filter.toLowerCase()),
+  //   );
+  // };
 
   render() {
     const { contacts, filter } = this.state;
