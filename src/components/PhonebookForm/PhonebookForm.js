@@ -35,6 +35,16 @@ export default class PhonebookForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
+    const { name, number } = this.state;
+    if (!isNaN(name)) {
+      alert('Invalid Contact Name');
+      return;
+    }
+    if (isNaN(number)) {
+      alert('Invalid Contact Number');
+      return;
+    }
+
     // const { name, number } = this.state;
     // this.props.onAddContact(name, number);
     // OR (was taken the state with all properties)
@@ -62,6 +72,7 @@ export default class PhonebookForm extends Component {
         <form className={form} onSubmit={this.handleSubmit}>
           <label className={inputLabel} htmlFor={this.nameId}>
             Name:
+            {/* if put <input> not inside <label> it's more comfortable to write styles for these ones */}
             <input
               className={input}
               type="text"
